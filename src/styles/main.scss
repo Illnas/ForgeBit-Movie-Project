@@ -1,0 +1,26 @@
+@use "header";
+@use "variables";
+@use "container";
+@use "card";
+@use "search";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  color: #fff;
+  font-family: variables.$lato;
+}
+
+main {
+  width: 100%;
+  height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
