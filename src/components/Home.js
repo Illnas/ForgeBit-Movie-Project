@@ -21,7 +21,7 @@ const Home = ({ setFavorites, favorites }) => {
   const handleSecondSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://www.omdbapi.com/?apikey=6fe1e02&s=${movieInput}`, {
+    fetch(`https://www.omdbapi.com/?apikey=6fe1e02&s=${movieInput}`, {
       method: "GET",
     })
       .then((response) => response.json())
