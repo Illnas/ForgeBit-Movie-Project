@@ -15,17 +15,13 @@ const Favorites = ({ favorites, setFavorites }) => {
     localStorage.setItem("favorites", JSON.stringify(filtered));
   };
 
+
   useEffect(() => {
-    const saved = localStorage.getItem("favorites");
-    const savedParse = JSON.parse(saved);
-
-    if (localStorage.getItem("favorites")) {
-      setLocal(savedParse);
-      setMovieState(true);
-    }
-
-    if (savedParse.length === 0) {
-      setMovieState(false);
+    if(localStorage.getItem("favorites")) {
+      const saved = localStorage.getItem("favorites")
+      const savedParse =  JSON.parse(saved);
+      setLocal(savedParse)
+      setMovieState(true)
     }
   }, [favorites]);
 
