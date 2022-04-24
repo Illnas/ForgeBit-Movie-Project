@@ -23,7 +23,6 @@ const MovieArticle = (props) => {
       setFavoriteState(!favoriteState);
       let filtered = props.favorites.filter((e) => e.id !== event.id);
       props.setFavorites(filtered);
-      localStorage.removeItem("favorites");
       localStorage.setItem("favorites", JSON.stringify(filtered));
     }
 

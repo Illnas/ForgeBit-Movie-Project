@@ -16,12 +16,21 @@ const Favorites = ({ favorites, setFavorites }) => {
   };
 
 
+
   useEffect(() => {
+    const saved = localStorage.getItem("favorites")
+    const savedParse =  JSON.parse(saved);
+
     if(localStorage.getItem("favorites")) {
-      const saved = localStorage.getItem("favorites")
-      const savedParse =  JSON.parse(saved);
       setLocal(savedParse)
+      console.log(savedParse)
       setMovieState(true)
+    }
+
+    console.log(favorites)
+
+    if(favorites.length === 0) {
+      setMovieState(false)
     }
   }, [favorites]);
 
@@ -32,7 +41,7 @@ const Favorites = ({ favorites, setFavorites }) => {
       </div>
 
       <div className="container-movie">
-        {local &&
+        {movieState &&
           local
             .slice((page - 1) * itemsPerPage, page * itemsPerPage)
             .map((e) => (
