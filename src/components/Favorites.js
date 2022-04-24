@@ -23,11 +23,8 @@ const Favorites = ({ favorites, setFavorites }) => {
 
     if(localStorage.getItem("favorites")) {
       setLocal(savedParse)
-      console.log(savedParse)
       setMovieState(true)
     }
-
-    console.log(favorites)
 
     if(favorites.length === 0) {
       setMovieState(false)
