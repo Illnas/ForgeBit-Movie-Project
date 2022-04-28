@@ -1,17 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { Pagination } from "@mui/material";
 
-const PaginationComponent = ({ movieState, movieData, setPage, setNoOfPages, itemsPerPage, noOfPages, page, savedParsed, setMovieState }) => {
-
+const PaginationComponent = ({
+  movieState,
+  movieData,
+  setPage,
+  setNoOfPages,
+  itemsPerPage,
+  noOfPages,
+  page,
+}) => {
   const handleChange = (event, value) => {
     setPage(value);
   };
 
-  useEffect(() => {
+
+  //Another way to stop missing dependancies in the useEffect hook
+  const fetchBusinesses = useCallback(() => {
     if (movieData) {
       setNoOfPages(Math.ceil(movieData.length / itemsPerPage));
     }
-  }, [movieData]);
+  }, [itemsPerPage, movieData, setNoOfPages])
+
+  useEffect(() => {
+    fetchBusinesses()
+  }, [fetchBusinesses])
+
 
   return (
     <div className="container-pagination">
@@ -24,8 +38,6 @@ const PaginationComponent = ({ movieState, movieData, setPage, setNoOfPages, ite
           color="primary"
         />
       )}
-
-
     </div>
   );
 };

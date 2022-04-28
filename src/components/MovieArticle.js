@@ -1,21 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const MovieArticle = (props) => {
   const [favoriteState, setFavoriteState] = useState(false);
+  const hasFetchedData = useRef(false);
+
 
   useEffect(() => {
-    const saved = localStorage.getItem("favorites");
-    const savedParsed = JSON.parse(saved);
-    if (savedParsed) {
-      props.setFavorites(savedParsed);
-    }
-    
-    const exists = props.favorites.some((x) => x.id === props.id);
+    //Stopping the missing dependancies in the array
+    if (!hasFetchedData.current) {
 
-    if (exists) {
-      setFavoriteState(!favoriteState);
+      const saved = localStorage.getItem("favorites");
+      const savedParsed = JSON.parse(saved);
+      if (savedParsed) {
+        props.setFavorites(savedParsed);
+      }
+
+      const exists = props.favorites.some((x) => x.id === props.id);
+
+      if (exists) {
+        setFavoriteState(!favoriteState);
+      }
+
+      hasFetchedData.current = true;
     }
-  }, []);
+  }, [props, favoriteState]);
 
   const addFavorite = (event) => {
     const exists = props.favorites.some((x) => x.id === event.id);
@@ -34,7 +42,6 @@ const MovieArticle = (props) => {
       );
       setFavoriteState(!favoriteState);
     }
-
   };
 
   const didWatch = () => {
