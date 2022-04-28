@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ForgeBit-Movie-Project/static/css/main.106c0688.css",
-    "main.js": "/ForgeBit-Movie-Project/static/js/main.69a075ed.js",
+    "main.js": "/ForgeBit-Movie-Project/static/js/main.0733c5e3.js",
     "index.html": "/ForgeBit-Movie-Project/index.html",
     "main.106c0688.css.map": "/ForgeBit-Movie-Project/static/css/main.106c0688.css.map",
-    "main.69a075ed.js.map": "/ForgeBit-Movie-Project/static/js/main.69a075ed.js.map"
+    "main.0733c5e3.js.map": "/ForgeBit-Movie-Project/static/js/main.0733c5e3.js.map"
   },
   "entrypoints": [
     "static/css/main.106c0688.css",
-    "static/js/main.69a075ed.js"
+    "static/js/main.0733c5e3.js"
   ]
 }
